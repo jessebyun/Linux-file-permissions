@@ -38,26 +38,37 @@ For example take file name .project_x.txt. The preceding “.” Before project_
 
 <h3>Change file permissions</h3>
 
-The organization does not allow other to have write access to any files. Based on the permissions established, identify which file needs to have its permissions modified. 
-There are 3 files that need to modify permissions for other.
-1.	Project_k.txt remove read and write for other.
-2.	Project_r.txt remove read for other.
-3.	Project_t.txt remove read for other
-   
-Commands to make this change is as follows: 
+The organization determined that other shouldn't have write access to any of their files. To
+comply with this, I referred to the file permissions that I previously returned. I determined
+project_k.txt must have the write access removed for other.
 
-<img src="" alt="linux2"/>
+<img src="https://i.imgur.com/WPlQ5Sl.png" alt="linux2"/>
+
+The command chmod changes the permissions on the files and directories. The first argument indicates what permissions should be changed, and the second argument specifies the file or directory. In this example, I removed write permissions from other for the project_k.txt file. The argument o-w removes write permissions from other. 
 
 
 <h3>Change file permissions on a hidden file</h3>
 
-The research team has archived .project_x.txt, which is why it’s a hidden file. This file should not have write permissions for anyone, but the user and group should be able to read the file. Use a Linux command to assign .project_x.txt the appropriate authorization.
+The research team has archived .project_x.txt, which is why it’s a hidden file. This file should not have write permissions for anyone, but the user and group should be able to read the file. The following code demonstrates how I used the Linux commands to change the permissions:
 
-<img src="" alt="linux3"/>
+<img src="https://i.imgur.com/Ip6Rb2h.png" alt="linux3"/>
 
+In this example, I removed write permissions from the user and group, then added read permissions to the group. I removed write permissions from the user with u-w. Then, I removed write permissions from the group with g-w, and added read permissions to the group with g+r. 
 
 <h3>Change directory permissions</h3>
 
-The files and directories in the projects directory belong to the researcher2 user. Only researcher2 should be allowed to access the drafts directory and its contents. Use a Linux command to modify the permissions accordingly.
+My organization only wants the researcher2 user to have access to the drafts directory
+and its contents. This means that no one other than researcher2 should have execute
+permissions.
+The following code demonstrates how I used Linux commands to change the permissions:
 
-<img src="" alt="linux4"/>
+<img src="https://i.imgur.com/rYoT0eP.png" alt="linux4"/>
+
+
+<h3>Summary</h3>
+
+I changed multiple permissions to match the level of authorization my organization wanted for
+files and directories in the projects directory. The first step in this was using ls -la to
+check the permissions for the directory. This informed my decisions in the following steps. I
+then used the chmod command multiple times to change the permissions on files and
+directories.
