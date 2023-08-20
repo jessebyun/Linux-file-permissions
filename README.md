@@ -18,3 +18,16 @@ To check permissions set for files and subdirectories in the projects directory 
 <br/><br/>
 <img src="https://i.imgur.com/TUSNKPp.png" alt="linux1"/>
 
+<h3>Describe the permissions string</h3>
+
+Each file or folder will have a 10-character string that conveys different information about these permissions. 1st character (d for directory – for a regular file). <br/>
+The 2nd character is for read permissions for the user (r if user had read permissions, - if user lacks read permissions). <br/>
+The 3rd character is for write permissions for the user (w if user had write permissions, - if user lacks write permissions).<br/>
+The 4th character is for execute permissions for the user (x if user had execute permissions, - if user lacks execute permissions).<br/>
+The 5th,6th,7th same as above three (read, write, execute) but this set pertains to permissions for the group.<br/>
+The 8th, 9th, 10th characters also same as above (read, write, execute) but permissions for other. <br/>
+
+For example take file name .project_x.txt. The preceding “.” Before project_x.txt denotes that this is a hidden file. Looking at the 10-character permission string (-rw--w----) we can see that since the 1st character is “-“ it is a regular file and not a directory. 
+2nd,3rd,4th character indicates the USER has read and write permissions. 
+5th,6th,7th character indicates the GROUP has only write permissions.
+8th,9th,10th character indicates that OTHER has no permissions for this file.
